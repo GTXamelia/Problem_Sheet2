@@ -1,15 +1,14 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"log"
+	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Guessing game %s", r.URL.Path[1:])
-}
-
 func main() {
-    http.HandleFunc("/", handler)
-    http.ListenAndServe(":8080", nil)
+	// Handles HTTP requests
+	http.Handle("/", http.FileServer(http.Dir("./guess")))
+
+	// Displays Errors to the console
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
