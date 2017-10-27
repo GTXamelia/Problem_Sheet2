@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <title>Guessing Game</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +14,7 @@
   
 	<center>
 		<h2>{{.Output}}</h2>
+		<h4>Current Guess:  {{.YourGuess}}</h4>
 		<form action="/guess" method="GET">
 			<input type="text" name="guess">
 			<input type="submit" value="Guess">
